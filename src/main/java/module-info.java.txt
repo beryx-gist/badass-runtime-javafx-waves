@@ -1,0 +1,9 @@
+module com.fxtestapp {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires com.fasterxml.jackson.core;
+    requires wavesj;
+
+    opens com.fxtestapp to javafx.fxml;
+    exports com.fxtestapp;
+}

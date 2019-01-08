@@ -1,0 +1,37 @@
+plugins {
+    id "org.beryx.runtime" version "1.0.0"
+    id "com.github.johnrengelman.shadow" version "4.0.3"
+    id 'org.openjfx.javafxplugin' version '0.0.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.wavesplatform', name: 'wavesj', version: '0.13.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.8'
+}
+
+javafx {
+    modules = ['javafx.controls',
+               'javafx.fxml'
+    ]
+}
+
+group 'com.fxtestapp'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClassName = "com.fxtestapp.Launcher"
+    applicationName = 'mainApp'
+}
+
+runtime {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    modules = ['java.desktop', 'java.xml', 'jdk.unsupported', 'java.scripting']
+}
